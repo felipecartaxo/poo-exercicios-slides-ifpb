@@ -1,20 +1,21 @@
-class Retangulo {
+package retangulo;
+class Main {
 	// Inicializando atributos
 	private int id;
 	private double largura;
 	private double comprimento;
 	
 	// Construtor vazio
-	public Retangulo() { }
+	public Main() { }
 	
 	// Construtor contendo apenas um parâmetro (nesse caso seria criado um quadrado)
-	public Retangulo(Double largura) {
+	public Main(Double largura) {
 		this.largura = largura;
 		this.comprimento = largura;
 	}
 	
 	// Construtor contendo 3 parâmetros
-	public Retangulo(int id, double largura, double comprimento) {
+	public Main(int id, double largura, double comprimento) {
 		this.id = id;
 		this.largura = largura;
 		this.comprimento = comprimento;
@@ -42,7 +43,7 @@ class Retangulo {
 	}
 	
 	// Verifica se as medidas entre dois retângulos são iguais
-	public boolean ehIgual(Retangulo outroRetangulo) {
+	public boolean ehIgual(Main outroRetangulo) {
 		if(this.calcularArea() == outroRetangulo.calcularArea()) {
 			return true;
 		}
@@ -58,7 +59,7 @@ class Retangulo {
 	}
 	
 	// Copia os atributos de um retângulo existente
-	public void copiar(Retangulo outroRetangulo) {
+	public void copiar(Main outroRetangulo) {
 		this.largura = outroRetangulo.largura;
 		this.comprimento = outroRetangulo.comprimento;
 	}

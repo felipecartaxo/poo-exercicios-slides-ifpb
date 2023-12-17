@@ -1,11 +1,12 @@
+package conta;
 
-public class Conta {
+public class Main {
 	private String numero;
 	private String cpf;
 	private double saldo;
 	
 	// Construtor
-	public Conta(String numero, String cpf) throws Exception {
+	public Main(String numero, String cpf) throws Exception {
 		if(!numeroValido(numero)) {
 			throw new Exception("Insira um número no formato '12345'.");
 		}
@@ -76,7 +77,7 @@ public class Conta {
 		}
 	}
 	
-	public void transferir(double valor, Conta contaDestino) throws Exception {
+	public void transferir(double valor, Main contaDestino) throws Exception {
 		// Lançará exceção se a conta que receberá a transferência for a mesma conta que está fazendo a transferência
 		if(this == contaDestino) {
 			throw new Exception("As contas origem e destino são as mesmas.");
@@ -114,8 +115,8 @@ public class Conta {
 	}
 	
 	// Cria uma copia a partir de uma conta existente
-	public Conta clonar() throws Exception {
-		Conta novaConta = new Conta(this.numero, this.cpf);
+	public Main clonar() throws Exception {
+		Main novaConta = new Main(this.numero, this.cpf);
 		novaConta.creditar(this.saldo);
 		
 		return novaConta;

@@ -1,3 +1,4 @@
+package retangulo;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -12,7 +13,7 @@ import java.awt.event.ActionEvent;
 import java.awt.Toolkit;
 import java.awt.Cursor;
 
-public class RetanguloInterface {
+public class Interface {
 
 	private JFrame frame;
 	private JLabel labelTitle;
@@ -33,7 +34,7 @@ public class RetanguloInterface {
 	private JTextField textFieldFator;
 
 	// Tem visibilidade global e pode ser utilizado em qualquer lugar da aplicação
-	private Retangulo r;
+	private Main r;
 	private JButton buttonCalcularArea;
 
 	/**
@@ -43,7 +44,7 @@ public class RetanguloInterface {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					RetanguloInterface window = new RetanguloInterface();
+					Interface window = new Interface();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -55,7 +56,7 @@ public class RetanguloInterface {
 	/**
 	 * Create the application.
 	 */
-	public RetanguloInterface() {
+	public Interface() {
 		initialize();
 	}
 
@@ -120,7 +121,7 @@ public class RetanguloInterface {
 				double largura = Double.parseDouble(textFieldLargura.getText());
 				double comprimento = Double.parseDouble(textFieldComprimento.getText());
 				
-				r = new Retangulo(id, largura, comprimento);
+				r = new Main(id, largura, comprimento);
 				log.setText("Retângulo criado com sucesso.");
 			}
 		});

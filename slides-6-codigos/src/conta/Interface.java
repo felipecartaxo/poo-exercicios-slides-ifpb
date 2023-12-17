@@ -1,3 +1,4 @@
+package conta;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -13,7 +14,7 @@ import java.awt.event.ActionEvent;
 import java.awt.Cursor;
 import java.awt.Toolkit;
 
-public class ContaInterface {
+public class Interface {
 
 	private JFrame frame;
 	private JLabel labelNumeroConta;
@@ -28,7 +29,7 @@ public class ContaInterface {
 	private JButton buttonExtrato;
 	
 	// Tem visibilidade global e pode ser utilizado em qualquer lugar da da aplicação
-	private Conta conta;
+	private Main main;
 	private JTextArea log;
 	private JLabel labelValor;
 	private JTextField textFieldValor;
@@ -40,7 +41,7 @@ public class ContaInterface {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ContaInterface window = new ContaInterface();
+					Interface window = new Interface();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -52,7 +53,7 @@ public class ContaInterface {
 	/**
 	 * Create the application.
 	 */
-	public ContaInterface() {
+	public Interface() {
 		initialize();
 	}
 
@@ -103,7 +104,7 @@ public class ContaInterface {
 					String numero = textFieldNumeroConta.getText();
 					String cpf = textFieldCpf.getText();
 					
-					conta = new Conta(numero, cpf);
+					main = new Main(numero, cpf);
 					
 					log.setText("Conta criada com sucesso.");
 				}
@@ -156,7 +157,7 @@ public class ContaInterface {
 				double valor = Double.parseDouble(textFieldValor.getText());
 				
 				try {
-					conta.creditar(valor);
+					main.creditar(valor);
 					log.setText("Crédito de R$ " + valor + " foi realizado com sucesso.");
 				}
 				catch(IllegalArgumentException ex) {
@@ -178,7 +179,7 @@ public class ContaInterface {
 			public void actionPerformed(ActionEvent e) {
 				double valor = Double.parseDouble(textFieldValor.getText());
 				try {
-					conta.debitar(valor);
+					main.debitar(valor);
 					
 					log.setText("Débito de R$ " + valor + " foi realizado com sucesso.");
 				}
@@ -199,11 +200,11 @@ public class ContaInterface {
 		buttonExtrato.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		buttonExtrato.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(conta == null) {
+				if(main == null) {
 					log.setText("Conta inexistente. Certifique-se de ter criado uma conta previamente.");
 				}
 				else {
-					log.setText(conta.toString());
+					log.setText(main.toString());
 				}
 			}
 		});
